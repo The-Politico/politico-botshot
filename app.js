@@ -86,6 +86,9 @@ async function takeScreenshot (url, selector, padding = 0) {
     document.querySelectorAll('.screenshot-hide').forEach((el) => {
       el.style.visibility = 'hidden';
     });
+    document.querySelectorAll('.live-analysis').forEach((el) => {
+      el.style.visibility = 'hidden';
+    });
     document.querySelectorAll('.screenshot-remove').forEach((el) => {
       el.style.display = 'none';
     });
