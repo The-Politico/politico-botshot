@@ -8,17 +8,10 @@ Check out their [blog post](https://www.innoq.com/en/blog/screenshot-dom-element
 
 ## Usage
 
-Build image:
+```
+$ curl -G "https://politico-hotshot.herokuapp.com/shoot?path=/relative/path/to/page/&selector=.a-css-class" > screenshot.png
 
-    $ docker build -t politico/hotshot .
-
-Start server:
-
-    $ docker run -p 5000:5000 -e PORT=5000 -e TARGET_HOST='https://www.politico.com' politico/hotshot
-
-Request a screenshot:
-
-    $ curl -G "http://localhost:5000/shoot?path=/relative/path&selector=.my-css-class" > screenshot.png
+```
 
 
 #### Removing elements on the page from screenshot
@@ -29,3 +22,9 @@ The following classes will receive the corresponding CSS style values before hot
 
 - `.screenshot-hide` --> `visibility: hidden;`
 - `.screenshot-remove` --> `display: none;`
+
+## Deploy
+
+```
+$ make deploy
+```
