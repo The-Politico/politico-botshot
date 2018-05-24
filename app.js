@@ -19,7 +19,7 @@ if (!TARGET_HOST) {
 }
 
 app.get('/', (req, res) => {
-  res.send('📸  GET /shoot?path=/some/url.&selector=.a-css-selector');
+  res.sendFile('home.html', {root: __dirname});
 });
 
 app.get('/shoot', async (req, res) => {
