@@ -2,9 +2,12 @@
 
 # politico-botshot
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 Takes screenshots of DOM elements on your pages. Lifted almost entirely from [innoq/hotshot](https://github.com/innoq/hotshot) with very small changes to the script and a new frontend.
 
 Check out their [blog post](https://www.innoq.com/en/blog/screenshot-dom-elements-puppeteer/) for more info.
+
 
 ## Usage
 
