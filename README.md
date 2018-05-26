@@ -58,3 +58,7 @@ $ docker run -p 5000:5000 -e PORT=5000 -e TARGET_HOST='https://www.politico.com'
 ```
 $ make deploy
 ```
+
+#### Easy deploy with Heroku
+
+Create an app in [Heroku](https://heroku.com) and then deploy code using the Heroku Container Registry. Update the Makefile to the name of your Heroku app.
