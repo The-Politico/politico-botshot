@@ -1,8 +1,8 @@
 ![POLITICO](https://rawgithub.com/The-Politico/src/master/images/logo/badge.png)
 
-# politico-hotshot
+# politico-botshot
 
-Takes screenshots of DOM elements. Lifted entirely from [innoq/hotshot](https://github.com/innoq/hotshot) with very small changes.
+Takes screenshots of DOM elements on your pages. Lifted almost entirely from [innoq/hotshot](https://github.com/innoq/hotshot) with very small changes to the script and a new frontend.
 
 Check out their [blog post](https://www.innoq.com/en/blog/screenshot-dom-elements-puppeteer/) for more info.
 
@@ -13,6 +13,7 @@ $ curl -G "https://politico-hotshot.herokuapp.com/shoot?path=/relative/path/to/p
 
 ```
 
+Use the API tool at  [https://politico-botshot.herokuapp.com/](https://politico-botshot.herokuapp.com/).
 
 #### Removing elements on the page from screenshot
 
@@ -22,6 +23,34 @@ The following classes will receive the corresponding CSS style values before hot
 
 - `.screenshot-hide` --> `visibility: hidden;`
 - `.screenshot-remove` --> `display: none;`
+
+## Develop
+
+#### Frontend assets
+
+```
+$ npm start
+```
+
+... and to build ...
+
+```
+$ npm run-script build
+```
+
+#### Run locally
+
+Build image:
+
+```
+$ docker build -t botshot .
+```
+
+Start server:
+
+```
+$ docker run -p 5000:5000 -e PORT=5000 -e TARGET_HOST='https://www.politico.com' botshot
+```
 
 ## Deploy
 

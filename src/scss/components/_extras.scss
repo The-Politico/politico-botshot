@@ -1,0 +1,23 @@
+section.extras {
+  max-width: 525px;
+  margin: 0 auto;
+  p{
+    font-family: $sans;
+    span{
+      background-color: $politico-line;
+      color: $politico-red;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+  }
+  h4{
+    margin-bottom: 25px;
+    margin-top: 50px;
+    font-size: 22px;
+  }
+  h6{
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,15 @@
+header{
+  font-size: 24px;
+  padding: 10px 20px;
+  border-bottom: 1px solid $politico-line;
+  b{
+    color: $politico-red;
+  }
+  svg.svg-inline--fa{
+    font-size: 34px;
+    color: $politico-line;
+    &:hover{
+      color: $politico-medium-gray;
+    }
+  }
+}

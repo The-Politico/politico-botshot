@@ -1,0 +1,21 @@
+section.title {
+  padding: 80px 50px;
+  margin:0;
+  background-color: $politico-dark-gray;
+  color: #fff;
+
+  h1 {
+    font-family: 'Poor Story', cursive;
+    text-align: center;
+    font-size: 42px;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  p{
+    margin-top: 20px;
+    font-family: $sans;
+    text-align: center;
+  }
+}

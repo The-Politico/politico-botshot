@@ -1,0 +1,15 @@
+@import '~politico-style/scss/base/theme';
+@import '~bootstrap/scss/buttons';
+
+@import 'theme/fonts';
+@import 'components/header';
+@import 'components/title';
+@import 'components/instructions';
+@import 'components/extras';
+
+
+
+body {
+  font-family: $sans;
+  padding-bottom: 100px;
+}

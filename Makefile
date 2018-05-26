@@ -1,2 +1,2 @@
 deploy:
-	heroku container:push web -a politico-hotshot
+	heroku container:push web -a politico-botshot

@@ -1,9 +1,16 @@
 {
-  "extends": "standard",
+  "extends": ["standard", "standard-react"],
   "env": {
     "node": true
   },
   "rules": {
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", {
+        "arrays": "always",
+        "objects": "always",
+        "imports": "never",
+        "exports": "never",
+        "functions": "ignore"
+    }]
   }
 }
