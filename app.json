@@ -1,0 +1,17 @@
+{
+  "name": "Botshot",
+  "description": "Take screenshots of page elements on your site.",
+  "repository": "https://github.com/The-Politico/politico-botshote",
+  "website": "https://politico-botshot.herokuapp.com/",
+  "keywords": ["node", "express", "puppeteer", "screenshot"],
+  "env": {
+    "TARGET_HOST": {
+      "description": "The site domain you want to screenshot pages on.",
+      "value": "https://www.politico.com"
+    },
+    "TIMEOUT": {
+      "description": "A custom timeout for puppeteer browser.",
+      "value": "10000"
+    }
+  }
+}
