@@ -10,7 +10,7 @@ Check out their [blog post](https://www.innoq.com/en/blog/screenshot-dom-element
 ## Usage
 
 ```
-$ curl -G "https://politico-hotshot.herokuapp.com/shoot?path=/relative/path/to/page/&selector=.a-css-class" > screenshot.png
+$ curl -G "https://politico-botshot.herokuapp.com/shoot?path=/relative/path/to/page/&selector=.a-css-class" > screenshot.png
 
 ```
 
