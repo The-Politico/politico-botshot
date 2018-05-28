@@ -50,7 +50,7 @@ async function takeScreenshot (url, selector, padding = 0) {
     });
     console.log(`📸 ${url} => ${selector}`);
   } else {
-    console.error(`💥 Can't find selector ${selector}`);
+    console.error(`💥 Can not find selector ${selector}`);
   }
 
   browser.close();

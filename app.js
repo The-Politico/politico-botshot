@@ -66,7 +66,6 @@ app.get('/shoot', async (req, res) => {
     }
   } catch (e) {
     console.error(e);
-    console.log('FIRES 5', e);
     res.status(500);
     return res.end();
   }
