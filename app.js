@@ -9,7 +9,7 @@ const takeScreenshot = require('./utils/screenshot');
 const app = express();
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
-const TARGET_HOST = process.env.TARGET_HOST || 'https://www.politico.com';
+const TARGET_HOST = process.env.TARGET_HOST || 'https://s3.amazonaws.com';
 const PORT = process.env.PORT || 5000;
 
 if (PRODUCTION && process.env.RAVEN_ENDPOINT) {

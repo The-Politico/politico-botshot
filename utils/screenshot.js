@@ -33,6 +33,10 @@ async function takeScreenshot (url, selector, padding = 0) {
     document.querySelectorAll('.ad').forEach((el) => {
       el.parentNode.removeChild(el);
     });
+    document.querySelectorAll('iframe').forEach((el) => {
+      el.parentNode.removeChild(el);
+    });
+
 
     const element = document.querySelector(selector);
     if (!element) {
