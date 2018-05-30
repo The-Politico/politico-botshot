@@ -30,6 +30,9 @@ async function takeScreenshot (url, selector, padding = 0) {
     document.querySelectorAll('.live-analysis').forEach((el) => {
       el.style.display = 'none';
     });
+    document.querySelectorAll('iframe').forEach((el) => {
+      el.parentNode.removeChild(el);
+    });
 
     const element = document.querySelector(selector);
     if (!element) {
