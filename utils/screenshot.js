@@ -26,12 +26,9 @@ async function takeScreenshot (url, selector, padding = 0) {
     document.querySelectorAll('.screenshot-remove').forEach((el) => {
       el.style.display = 'none';
     });
-    // Temporary for elections
+    // Temporary for our elections pages
     document.querySelectorAll('.live-analysis').forEach((el) => {
       el.style.display = 'none';
-    });
-    document.querySelectorAll('.ad').forEach((el) => {
-      el.parentNode.removeChild(el);
     });
     document.querySelectorAll('iframe').forEach((el) => {
       el.parentNode.removeChild(el);
