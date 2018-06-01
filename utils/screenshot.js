@@ -35,7 +35,7 @@ async function takeScreenshot (url, selector, paddingString) {
     `,
   });
 
-  await delay(DELAY);
+  await delay(parseInt(DELAY));
 
   const rect = await page.evaluate(selector => {
     // ... Also hide, remove or destroy individual elements for good measure.
