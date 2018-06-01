@@ -2,6 +2,13 @@ const puppeteer = require('puppeteer');
 const parsePadding = require('./padding');
 
 const TIMEOUT = process.env.TIMEOUT || 15000;
+const DELAY = process.env.DELAY || 0;
+
+function delay (time) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, time);
+  });
+}
 
 async function takeScreenshot (url, selector, paddingString) {
   const padding = parsePadding(paddingString);
@@ -27,6 +34,8 @@ async function takeScreenshot (url, selector, paddingString) {
       .screenshot-remove { display:none !important; }
     `,
   });
+
+  await delay(DELAY);
 
   const rect = await page.evaluate(selector => {
     // ... Also hide, remove or destroy individual elements for good measure.
