@@ -1,8 +1,11 @@
 const puppeteer = require('puppeteer');
+const parsePadding = require('./padding');
 
-const TIMEOUT = process.env.TIMEOUT || 5000;
+const TIMEOUT = process.env.TIMEOUT || 15000;
 
-async function takeScreenshot (url, selector, padding = 0) {
+async function takeScreenshot (url, selector, paddingString) {
+  const padding = parsePadding(paddingString);
+
   let screenshot;
   const browser = await puppeteer.launch({
     args: [
@@ -17,26 +20,25 @@ async function takeScreenshot (url, selector, padding = 0) {
   page.setViewport({ width: 1000, height: 600, deviceScaleFactor: 2, });
 
   await page.goto(url, { waitUntil: 'networkidle2', });
+  // Add a style tag to hide or remove elements...
+  page.addStyleTag({
+    content: `
+      .screenshot-hide { visibility:hidden !important; }
+      .screenshot-remove { display:none !important; }
+    `,
+  });
 
   const rect = await page.evaluate(selector => {
-    // Hide or remove elements from page on screenshot
+    // ... Also hide, remove or destroy individual elements for good measure.
     document.querySelectorAll('.screenshot-hide').forEach((el) => {
       el.style.visibility = 'hidden';
     });
     document.querySelectorAll('.screenshot-remove').forEach((el) => {
       el.style.display = 'none';
     });
-    // Temporary for our elections pages
-    document.querySelectorAll('.live-analysis').forEach((el) => {
-      el.style.display = 'none';
-    });
-    document.querySelectorAll('.ad').forEach((el) => {
+    document.querySelectorAll('.screenshot-destroy').forEach((el) => {
       el.parentNode.removeChild(el);
     });
-    document.querySelectorAll('iframe').forEach((el) => {
-      el.parentNode.removeChild(el);
-    });
-
 
     const element = document.querySelector(selector);
     if (!element) {
@@ -49,15 +51,16 @@ async function takeScreenshot (url, selector, padding = 0) {
   if (rect) {
     screenshot = await page.screenshot({
       clip: {
-        x: rect.left - padding,
-        y: rect.top - padding,
-        width: rect.width + (padding * 2),
-        height: rect.height + (padding * 2),
+        x: rect.left - padding.left,
+        y: rect.top - padding.top,
+        width: rect.width + (padding.left + padding.right),
+        height: rect.height + (padding.top + padding.bottom),
       },
     });
-    console.log(`📸 ${url} => ${selector}`);
+    console.log(`📸 Captured element ${selector}!`);
+    console.log(`   >> ${url}`);
   } else {
-    console.error(`💥 Can not find selector ${selector}`);
+    console.error(`🛑 Can't find element matching selector ${selector}`);
   }
 
   browser.close();

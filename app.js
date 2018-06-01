@@ -5,7 +5,6 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 
 const takeScreenshot = require('./utils/screenshot');
-
 const app = express();
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
@@ -46,9 +45,12 @@ app.get('/', (req, res) => {
 app.get('/shoot', async (req, res) => {
   const path = req.query.path;
   const selector = req.query.selector;
-  const padding = parseInt(req.query.padding) || 0;
+  const padding = req.query.padding;
+
+  console.log('PARAMS', path, selector);
 
   if (!path || !selector) {
+    console.log('🛑 Request missing required query parameters.');
     res.status(422);
     return res.end();
   }
@@ -61,14 +63,16 @@ app.get('/shoot', async (req, res) => {
       res.type('image/png');
       res.send(screenshot);
     } else {
+      console.log('🛑 No screenshot returned from request.');
       res.status(422);
       return res.end();
     }
   } catch (e) {
+    console.log('🛑 Error taking screenshot.');
     console.error(e);
     res.status(500);
     return res.end();
   }
 });
 
-app.listen(PORT, () => console.log(`Botshot listening on port ${PORT}.`));
+app.listen(PORT, () => console.log(`📸  botshot listening on port ${PORT}.`));

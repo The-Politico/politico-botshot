@@ -85,12 +85,13 @@ class Instructions extends React.Component {
             />
           </div>
           <h6>padding</h6>
-          <p>An amount of padding in pixels to include around the page element.</p>
+          <p>An amount of padding in pixels -- specified as a CSS string -- to include around the page element.</p>
           <div className='input-group'>
             <input
-              type='number'
+              type='text'
               className='form-control'
               value={this.state.padding}
+              placeholder='5px 5px 10px 5px'
               onChange={(e) => this.setState({ padding: e.target.value, })}
             />
           </div>
